@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Человек-бензопила - Movie C2H5OH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .overlay {
+            background: rgba(10, 10, 10, 0.78);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3.5em;
+            color: #ff4500;
+            text-shadow: 0 0 20px #ff4500;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        .social-icons {
+            margin: 20px 0 40px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            color: #ff4500;
+            transform: scale(1.1);
+        }
+        .social-emoji {
+            font-size: 3em;
+            margin-bottom: 8px;
+        }
+        .seasons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            max-width: 1100px;
+        }
+        .season-btn {
+            background: rgba(30, 30, 30, 0.9);
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 12px 25px;
+            font-size: 1.3em;
+            color: #ff4500;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 120px;
+            text-align: center;
+        }
+        .season-btn:hover, .season-btn.active {
+            background: rgba(50, 50, 50, 0.95);
+            border-color: #ff4500;
+            transform: scale(1.05);
+        }
+        .episodes-container {
+            width: 100%;
+            max-width: 900px;
+            display: none;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+        .episodes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .episode-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            font-size: 1.3em;
+        }
+        .episode-item:last-child {
+            border-bottom: none;
+        }
+        .episode-number {
+            color: #fff;
+        }
+        .episode-status {
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            min-width: 140px;
+            text-align: center;
+        }
+        .not-watched { background: #444; color: #ccc; }
+        .watching    { background: #ff6600; color: #fff; }
+        .watched     { background: #2e7d32; color: #fff; }
+        .watch-btn {
+            display: inline-block;
+            background: #ff4500;
+            color: white;
+            font-size: 1.8em;
+            padding: 15px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            margin: 20px 0 30px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255,69,0,0.4);
+        }
+        .watch-btn:hover {
+            background: #ff6600;
+            transform: scale(1.05);
+        }
+        .back-btn {
+            margin: 50px 0 40px;
+            color: #ff4500;
+            font-size: 1.6em;
+            text-decoration: none;
+            border: 2px solid #ff4500;
+            padding: 15px 40px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: rgba(255,69,0,0.2);
+        }
+        footer {
+            font-size: 1em;
+            opacity: 0.7;
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <!-- Социалки над названием -->
+        <div class="social-icons">
+            <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
+                <span class="social-emoji">📱</span>
+                Telegram
+            </a>
+            <a href="https://discord.gg/xZW75EtY" target="_blank" class="social-link">
+                <span class="social-emoji">🎮</span>
+                Discord
+            </a>
+        </div>
+
+        <h1>ЧЕЛОВЕК-БЕНЗОПИЛА</h1>
+
+        <!-- Кнопки (аниме/фильм) -->
+        <div class="seasons">
+            <div class="season-btn active" data-part="1">Человек-бензопила</div>
+            <div class="season-btn" data-part="2">Человек-бензопила - История Резе</div>
+        </div>
+
+        <!-- Контейнер для серий -->
+        <div class="episodes-container" id="episodes">
+            <!-- Общая кнопка "Смотреть" над списком -->
+            <a href="https://site.yummyani.me/catalog/item/chelovek-benzopila" target="_blank" class="watch-btn" id="common-watch-btn">Смотреть весь сезон</a>
+            <ul class="episodes-list" id="episodes-list"></ul>
+        </div>
+
+        <a href="../" class="back-btn">← Назад к аниме</a>
+
+        <footer>© 2026 Movie C2H5OH</footer>
+    </div>
+
+    <script>
+        // Данные аниме
+        const animeData = {
+            1: [ // Человек-бензопила (12 серий, все просмотрены)
+                { num: 1, status: 'watched' },
+                { num: 2, status: 'watched' },
+                { num: 3, status: 'watched' },
+                { num: 4, status: 'watched' },
+                { num: 5, status: 'watched' },
+                { num: 6, status: 'watched' },
+                { num: 7, status: 'watched' },
+                { num: 8, status: 'watched' },
+                { num: 9, status: 'watched' },
+                { num: 10, status: 'watched' },
+                { num: 11, status: 'watched' },
+                { num: 12, status: 'watched' }
+            ],
+            2: [ // История Резе (полнометражка — 1 "серия", просмотрена)
+                { num: 1, status: 'watched' }
+            ]
+        };
+
+        // Тексты статусов
+        const statusTexts = {
+            'not-watched': 'Не просмотрено',
+            'watching': 'Смотрю',
+            'watched': 'Просмотрено'
+        };
+
+        // Ссылки на просмотр (общие для каждого "сезона")
+        const watchLinks = {
+            1: 'https://site.yummyani.me/catalog/item/chelovek-benzopila',
+            2: 'https://site.yummyani.me/catalog/item/chelovek-benzopila-reze'
+        };
+
+        const animeButtons = document.querySelectorAll('.season-btn');
+        const episodesContainer = document.getElementById('episodes');
+        const episodesList = document.getElementById('episodes-list');
+        const commonWatchBtn = document.getElementById('common-watch-btn');
+
+        // Показываем первое аниме по умолчанию
+        showAnime(1);
+
+        animeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const anime = btn.getAttribute('data-part');
+                showAnime(anime);
+
+                animeButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        function showAnime(anime) {
+            episodesList.innerHTML = '';
+            const episodes = animeData[anime] || [];
+
+            // Общая кнопка "Смотреть" над списком
+            commonWatchBtn.href = watchLinks[anime];
+            commonWatchBtn.textContent = anime === '1' ? 'Смотреть весь сериал' : 'Смотреть полнометражку';
+
+            if (episodes.length === 0) {
+                episodesList.innerHTML = '<li style="text-align:center; padding:30px; font-size:1.3em;">Серии ещё не добавлены</li>';
+            } else {
+                episodes.forEach(ep => {
+                    const li = document.createElement('li');
+                    li.className = 'episode-item';
+
+                    li.innerHTML = `
+                        <span class="episode-number">Серия ${ep.num}</span>
+                        <span class="episode-status ${ep.status}">
+                            ${statusTexts[ep.status] || 'Не просмотрено'}
+                        </span>
+                    `;
+
+                    episodesList.appendChild(li);
+                });
+            }
+
+            episodesContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
