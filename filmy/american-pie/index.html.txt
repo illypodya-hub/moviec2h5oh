@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гринч - Похититель Рождества - Movie C2H5OH</title>
+    <title>Американский пирог - Movie C2H5OH</title>
     <style>
         body { margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:#0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed; background-size:cover; color:#fff; min-height:100vh; }
         .overlay { background:rgba(10,10,10,0.8); min-height:100vh; padding:40px 20px; display:flex; flex-direction:column; align-items:center; }
@@ -41,28 +41,28 @@
             </a>
         </div>
 
-        <h1>Гринч - Похититель Рождества (2000)</h1>
+        <h1>Американский пирог (1999)</h1>
 
         <div class="film-content">
             <div class="poster-block">
-                <img src="https://images.kinorium.com/movie/poster/141877/w1500_54783557.jpg" alt="Гринч" class="poster">
+                <img src="../PHOTO/американский пирог 1999.jpg" alt="Американский пирог" class="poster">
                 <div class="meta-under-poster">
-                    <div class="rating">IMDb: 6.3 / 10</div>
+                    <div class="rating">IMDb: 7.0 / 10</div>
                     <div class="status">Статус: НЕ СМОТРЕЛИ</div>
                 </div>
             </div>
 
             <div class="info-block">
-                <p><strong>Режиссёр:</strong> Рон Ховард</p>
-                <p><strong>В ролях:</strong> Джим Керри, Тейлор Момсен, Джеффри Тамбор, Кристин Барански</p>
-                <p><strong>Жанр:</strong> Комедия, Семейный, Фэнтези</p>
+                <p><strong>Режиссёр:</strong> Пол Вайц</p>
+                <p><strong>В ролях:</strong> Джейсон Биггс, Шеннон Элизабет, Элайджа Вуд, Ситара Шах</p>
+                <p><strong>Жанр:</strong> Комедия</p>
                 <p><strong>Страна:</strong> США</p>
-                <p><strong>Описание:</strong> Злобный зелёный Гринч ненавидит Рождество и решает украсть его у жителей городка Ктоград. Он крадёт все подарки, ёлки и еду, но в итоге узнаёт, что Рождество — это не про вещи, а про сердце и доброту. Классика с Джимом Керри в главной роли!</p>
+                <p><strong>Описание:</strong> Группа друзей-выпускников заключает пари: кто первым потеряет девственность до окончания школы. Классическая подростковая комедия 90-х с кучей неловких и смешных ситуаций. Первый фильм из легендарной серии.</p>
             </div>
         </div>
 
         <!-- Плеер (замени src на реальный embed) -->
-        <iframe class="player" src="https://www.youtube.com/embed/VIDEO_ID" title="Гринч - Похититель Рождества" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class="player" src="https://www.youtube.com/embed/VIDEO_ID" title="Американский пирог" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         <a href="../" class="back-btn">← Назад к фильмам</a>
 
