@@ -21,7 +21,8 @@
         .info-block { flex:2; min-width:400px; background:rgba(30,30,30,0.85); border-radius:16px; padding:25px; box-shadow:0 10px 30px rgba(0,0,0,0.6); }
         .info-block p { margin:12px 0; font-size:1.2em; line-height:1.5; }
         .info-block strong { color:#ff4500; }
-        .player { width:100%; max-width:900px; height:506px; border:none; border-radius:12px; margin:30px 0; background:#000; }
+        .watch-btn { display:inline-block; background:#ff4500; color:white; font-size:2em; padding:20px 60px; border-radius:15px; text-decoration:none; margin:40px 0; transition:all 0.3s; box-shadow:0 5px 15px rgba(255,69,0,0.4); }
+        .watch-btn:hover { background:#ff6600; transform:scale(1.05); }
         .back-btn { margin:40px 0 30px; color:#ff4500; font-size:1.6em; text-decoration:none; border:2px solid #ff4500; padding:15px 40px; border-radius:12px; transition:all 0.3s; }
         .back-btn:hover { background:rgba(255,69,0,0.2); }
         footer { font-size:1em; opacity:0.7; margin-top:auto; padding:20px; text-align:center; }
@@ -61,8 +62,8 @@
             </div>
         </div>
 
-        <!-- Плеер (замени src на реальный embed) -->
-        <iframe class="player" src="https://www.youtube.com/embed/VIDEO_ID" title="Гринч - Похититель Рождества" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- Кнопка "Смотреть" (замени href на реальную страницу фильма на Filmix/Kubik/Kinogo) -->
+        <a href="https://example.com/grinch" target="_blank" class="watch-btn">Смотреть</a>
 
         <a href="../" class="back-btn">← Назад к фильмам</a>
 
