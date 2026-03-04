@@ -179,7 +179,7 @@
         <!-- Контейнер для серий -->
         <div class="episodes-container" id="episodes">
             <!-- Общая кнопка "Смотреть" над списком -->
-            <a href="https://site.yummyani.me/catalog/item/chelovek-benzopila" target="_blank" class="watch-btn" id="common-watch-btn">Смотреть весь сезон</a>
+            <a href="https://site.yummyani.me/catalog/item/chelovek-benzopila" target="_blank" class="watch-btn" id="common-watch-btn">Смотреть весь сериал</a>
             <ul class="episodes-list" id="episodes-list"></ul>
         </div>
 
@@ -205,8 +205,8 @@
                 { num: 11, status: 'watched' },
                 { num: 12, status: 'watched' }
             ],
-            2: [ // История Резе (полнометражка — 1 "серия", просмотрена)
-                { num: 1, status: 'watched' }
+            2: [ // История Резе (полнометражка — просто название, просмотрена)
+                { num: null, title: 'Человек-бензопила - История Резе', status: 'watched' }
             ]
         };
 
@@ -256,8 +256,10 @@
                     const li = document.createElement('li');
                     li.className = 'episode-item';
 
+                    const episodeText = ep.num !== null ? `Серия ${ep.num}` : ep.title;
+
                     li.innerHTML = `
-                        <span class="episode-number">Серия ${ep.num}</span>
+                        <span class="episode-number">${episodeText}</span>
                         <span class="episode-status ${ep.status}">
                             ${statusTexts[ep.status] || 'Не просмотрено'}
                         </span>
