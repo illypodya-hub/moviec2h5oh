@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zubarefff - Movie C2H5OH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .overlay {
+            background: rgba(10, 10, 10, 0.78);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3.5em;
+            color: #ff4500;
+            text-shadow: 0 0 20px #ff4500;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        .social-icons {
+            margin: 20px 0 40px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            color: #ff4500;
+            transform: scale(1.1);
+        }
+        .social-emoji {
+            font-size: 3em;
+            margin-bottom: 8px;
+        }
+        .list-container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+        .list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            font-size: 1.3em;
+            transition: background 0.2s;
+        }
+        .list-item:hover {
+            background: rgba(50, 50, 50, 0.6);
+        }
+        .list-item a {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: inherit;
+            text-decoration: none;
+        }
+        .title {
+            color: #fff;
+        }
+        .status {
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            min-width: 140px;
+            text-align: center;
+        }
+        .not-watched { background: #444; color: #ccc; }
+        .back-btn {
+            margin: 50px 0 40px;
+            color: #ff4500;
+            font-size: 1.6em;
+            text-decoration: none;
+            border: 2px solid #ff4500;
+            padding: 15px 40px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: rgba(255,69,0,0.2);
+        }
+        footer {
+            font-size: 1em;
+            opacity: 0.7;
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <!-- Социалки над названием -->
+        <div class="social-icons">
+            <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
+                <span class="social-emoji">📱</span>
+                Telegram
+            </a>
+            <a href="https://discord.gg/xZW75EtY" target="_blank" class="social-link">
+                <span class="social-emoji">🎮</span>
+                Discord
+            </a>
+        </div>
+
+        <h1>ZUBAREFFF</h1>
+
+        <!-- Контейнер для списка -->
+        <div class="list-container">
+            <ul class="list" id="list">
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/13" target="_blank">
+                        <span class="title">ЖЕЛЕЗНЫЙ ЧЕЛОВЕК</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/20" target="_blank">
+                        <span class="title">ЖЕЛЕЗНЫЙ ЧЕЛОВЕК 2</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/25" target="_blank">
+                        <span class="title">ТОР</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/30" target="_blank">
+                        <span class="title">ПЕРВЫЙ МСТИТЕЛЬ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/34" target="_blank">
+                        <span class="title">МСТИТЕЛИ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/40" target="_blank">
+                        <span class="title">ЖЕЛЕЗНЫЙ ЧЕЛОВЕК 3</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/46" target="_blank">
+                        <span class="title">ТОР 2 : ЦАРСТВО ТЬМЫ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/48" target="_blank">
+                        <span class="title">ПЕРВЫЙ МСТИТЕЛЬ : ДРУГАЯ ВОЙНА</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/55" target="_blank">
+                        <span class="title">СТРАЖИ ГАЛАКТИКИ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/61" target="_blank">
+                        <span class="title">МСТИТЕЛИ : ЭРА АЛЬТРОНА</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/65" target="_blank">
+                        <span class="title">ЧЕЛОВЕК МУРАВЕЙ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/71" target="_blank">
+                        <span class="title">ПЕРВЫЙ МСТИТЕЛЬ : ПРОТИВОСТОЯНИЕ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/79" target="_blank">
+                        <span class="title">ДОКТОР СТРЭНДЖ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/82" target="_blank">
+                        <span class="title">СТРАЖИ ГАЛАКТИКИ 2</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/88" target="_blank">
+                        <span class="title">ЧЕЛОВЕК ПАУК : ВОЗВРАЩЕНИЕ ДОМОЙ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/95" target="_blank">
+                        <span class="title">ТОР : РАГНАРЁК</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/102" target="_blank">
+                        <span class="title">ЧЁРНАЯ ПАНТЕРА</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/108" target="_blank">
+                        <span class="title">МСТИТЕЛИ: ВОЙНА БЕСКОНЕЧНОСТИ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/116" target="_blank">
+                        <span class="title">ЧЕЛОВЕК МУРАВЕЙ И ОСА</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/123" target="_blank">
+                        <span class="title">КАПИТАН МАРВЕЛ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/130" target="_blank">
+                        <span class="title">МСТИТЕЛИ ФИНАЛ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/135" target="_blank">
+                        <span class="title">ЧЕЛОВЕК ПАУК : ВДАЛИ ОТ ДОМА</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/139" target="_blank">
+                        <span class="title">ШАН-ЧИ И ЛЕГЕНДА 10-ТИ КОЛЕЦ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/146" target="_blank">
+                        <span class="title">ЧЕЛОВЕК ПАУК : НЕТ ПУТИ ДОМОЙ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/150" target="_blank">
+                        <span class="title">ВЕЧНЫЕ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/154" target="_blank">
+                        <span class="title">ДОКТОР СТРЭНДЖ : В МУЛЬТИВСЕЛЕННОЙ БЕЗУМИЯ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/158" target="_blank">
+                        <span class="title">ТОР : ЛЮБОВЬ И ГРОМ</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="https://t.me/c/2037035962/292" target="_blank">
+                        <span class="title">СТРАЖИ ГАЛАКТИКИ 3</span>
+                        <span class="status not-watched">Не просмотрено</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="../" class="back-btn">← Назад к категориям</a>
+
+        <footer>© 2026 Movie C2H5OH</footer>
+    </div>
+</body>
+</html>
