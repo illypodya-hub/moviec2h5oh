@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сериалы - Movie C2H5OH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .overlay {
+            background: rgba(10, 10, 10, 0.78);
+            min-height: 100vh;
+            padding: 40px 30px 100px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            max-width: 220px;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
+        }
+        h1 {
+            font-size: 4.5em;
+            font-weight: bold;
+            color: #ff4500;
+            text-shadow: 0 0 25px #ff4500;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 1.6em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .social-icons {
+            margin: 30px 0 50px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            color: #ff4500;
+            transform: scale(1.1);
+        }
+        .social-emoji {
+            font-size: 3em;
+            margin-bottom: 8px;
+        }
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+        }
+        .series-card {
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
+            position: relative;
+            cursor: pointer;
+        }
+        .series-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255,69,0,0.5);
+        }
+        .series-poster {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: #111;
+            display: block;
+        }
+        .series-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .series-title {
+            font-size: 1.8em;
+            margin: 0 0 10px;
+            color: #ff4500;
+        }
+        .watch-btn {
+            display: inline-block;
+            background: #ff4500;
+            color: white;
+            font-size: 1.2em;
+            padding: 12px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .watch-btn:hover {
+            background: #ff6600;
+        }
+        .back-btn {
+            margin: 50px 0 40px;
+            color: #ff4500;
+            font-size: 1.6em;
+            text-decoration: none;
+            border: 2px solid #ff4500;
+            padding: 15px 40px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: rgba(255,69,0,0.2);
+        }
+        footer {
+            font-size: 1em;
+            opacity: 0.7;
+            margin-top: auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <img
+            src="../photo_2026-01-10_16-49-16-removebg-preview.png"
+            alt="Королевство C2H5OH"
+            class="logo"
+        >
+        <h1>СЕРИАЛЫ</h1>
+        <div class="subtitle">КИНОКОМНАТА С2H5OH 🍿🔥</div>
+
+        <!-- Социалки под заголовком -->
+        <div class="social-icons">
+            <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
+                <span class="social-emoji">📱</span>
+                Telegram
+            </a>
+            <a href="https://discord.gg/xZW75EtY" target="_blank" class="social-link">
+                <span class="social-emoji">🎮</span>
+                Discord
+            </a>
+        </div>
+
+        <!-- Сетка с сериалами -->
+        <div class="series-grid">
+            <!-- Голяк -->
+            <a href="golyak/" class="series-card">
+                <img
+                    src="../serialy/photo/w1500_51996134[3].jpg"
+                    alt="Голяк"
+                    class="series-poster"
+                >
+                <div class="series-info">
+                    <div class="series-title">Голяк</div>
+                    <div class="watch-btn">Смотреть</div>
+                </div>
+            </a>
+
+            <!-- Конец этого ёбаного мира -->
+            <a href="konets-etogo-ebanogo-mira/" class="series-card">
+                <img
+                    src="../serialy/photo/w1500_50170960[1].jpg"
+                    alt="Конец этого ёбаного мира"
+                    class="series-poster"
+                >
+                <div class="series-info">
+                    <div class="series-title">Конец этого ёбаного мира</div>
+                    <div class="watch-btn">Смотреть</div>
+                </div>
+            </a>
+        </div>
+
+        <a href="../" class="back-btn">← На главную</a>
+
+        <footer>
+            © 2026 Movie C2H5OH
+        </footer>
+    </div>
+</body>
+</html>
