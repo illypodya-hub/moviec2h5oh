@@ -11,19 +11,18 @@
             background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
         }
         .overlay {
             background: rgba(10, 10, 10, 0.75);
-            height: 100%;
+            min-height: 100vh;
+            padding: 20px 30px;
             display: flex;
             flex-direction: column;
-            padding: 20px 30px;
         }
         header {
             text-align: center;
-            padding: 20px 0 10px;
+            padding: 30px 0 20px;
         }
         h1 {
             font-size: 3.8em;
@@ -39,9 +38,10 @@
         }
         .social {
             position: absolute;
-            top: 40px;
-            right: 40px;
+            top: 30px;
+            right: 30px;
             text-align: center;
+            z-index: 10;
         }
         .social-link {
             color: white;
@@ -55,7 +55,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            margin: 200px auto 20px; /* ← отступ от текста 200px сверху, кнопки близко к жанрам снизу */
+            margin: 30px auto 20px;
             max-width: 800px;
             width: 100%;
         }
@@ -83,7 +83,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* карточки начинаются сразу под кнопками */
+            align-items: flex-start;
             padding-top: 0;
         }
         .categories {
@@ -124,14 +124,15 @@
 
         /* Мобильные (до 768px) */
         @media (max-width: 768px) {
-            h1 { font-size: 2.4em; }
+            header { padding: 60px 0 20px; } /* ← сдвинул текст ниже, чтобы Telegram не перекрывал */
+            h1 { font-size: 2.6em; }
             .subtitle { font-size: 1em; }
             .social { top: 20px; right: 20px; }
             .social-emoji { font-size: 2em; }
             .action-row {
                 grid-template-columns: 1fr;
                 gap: 15px;
-                margin: 80px auto 15px; /* на телефоне отступ сверху меньше, чтобы всё влезло */
+                margin: 20px auto 20px;
             }
             .action-btn { height: 100px; font-size: 1.6em; }
             .categories {
@@ -161,12 +162,12 @@
             </div>
         </header>
 
-        <!-- Кнопки над жанрами, максимально близко к карточкам -->
+        <!-- Кнопки над жанрами -->
         <div class="action-row">
             <a href="translyatsiya/" target="_blank" class="action-btn">
                 <span>ПРОСМОТР</span>
             </a>
-            <a href="https://discord.gg/KUYHEuh3" target="_blank" class="action-btn">
+            <a href="predlozhit/" target="_blank" class="action-btn">
                 <span>ПРЕДЛОЖИТЬ</span>
             </a>
         </div>
