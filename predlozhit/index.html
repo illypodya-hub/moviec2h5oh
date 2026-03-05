@@ -5,62 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Предложить к просмотру — Movie C2H5OH</title>
   <style>
-    body, html {
+    body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: white;
-      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .overlay {
+      background: rgba(10, 10, 10, 0.78);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+    }
+    header {
+      text-align: center;
+      padding: 20px 0 30px;
+    }
+    h1 {
+      font-size: 3.2em;
+      color: #ff4500;
+      text-shadow: 0 0 20px #ff4500;
+      margin: 0 0 10px;
+    }
+    .subtitle {
+      font-size: 1.3em;
+      opacity: 0.9;
     }
     .split {
-      display: flex;
-      height: 100%;
-    }
-    .left, .right {
       flex: 1;
+      display: flex;
+      gap: 40px;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .half {
+      flex: 1;
+      padding: 40px;
+      border-radius: 16px;
+      background: rgba(30, 30, 30, 0.85);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 30px;
-    }
-    .left {
-      background: rgba(0, 0, 0, 0.4);
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .right {
-      background: rgba(255, 69, 0, 0.08);
-    }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 20px #ff4500;
       text-align: center;
     }
     .telegram-btn {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 15px;
       background: #0088cc;
       color: white;
-      padding: 18px 40px;
-      font-size: 1.5rem;
+      padding: 20px 50px;
+      font-size: 1.6em;
       font-weight: bold;
       border-radius: 12px;
       text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 8px 30px rgba(0, 136, 204, 0.35);
+      transition: all 0.3s;
+      box-shadow: 0 8px 30px rgba(0, 136, 204, 0.4);
     }
     .telegram-btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 136, 204, 0.55);
+      box-shadow: 0 12px 40px rgba(0, 136, 204, 0.6);
       background: #0099e6;
     }
     form {
       width: 100%;
-      max-width: 460px;
+      max-width: 500px;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -68,7 +86,7 @@
     input, textarea {
       width: 100%;
       padding: 16px 20px;
-      font-size: 1.1rem;
+      font-size: 1.1em;
       border: 1px solid rgba(255,255,255,0.25);
       border-radius: 10px;
       background: rgba(255,255,255,0.08);
@@ -90,7 +108,7 @@
       color: white;
       border: none;
       padding: 18px;
-      font-size: 1.4rem;
+      font-size: 1.4em;
       font-weight: bold;
       border-radius: 12px;
       cursor: pointer;
@@ -103,43 +121,73 @@
     }
     .success {
       color: #00ff88;
-      font-size: 1.3rem;
+      font-size: 1.4em;
       margin-top: 20px;
       display: none;
     }
     .error {
       color: #ff5555;
-      font-size: 1.2rem;
+      font-size: 1.2em;
       margin-top: 10px;
       display: none;
+    }
+    .back-btn {
+      margin: 40px 0 20px;
+      color: #ff4500;
+      font-size: 1.6em;
+      text-decoration: none;
+      border: 2px solid #ff4500;
+      padding: 15px 40px;
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+    .back-btn:hover {
+      background: rgba(255,69,0,0.2);
+    }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1em;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
-  <div class="split">
-    <!-- Левая половина — Telegram -->
-    <div class="left">
-      <h1>Быстрый способ</h1>
-      <p style="font-size: 1.3rem; margin: 0 0 40px; opacity: 0.9;">
-        Самый простой и быстрый вариант — написать в Telegram
-      </p>
-      <a href="https://t.me/samogon_goni" target="_blank" class="telegram-btn">
-        <span style="font-size: 1.8em;">📱</span> Написать в Telegram
-      </a>
+  <div class="overlay">
+    <header>
+      <h1>ПРЕДЛОЖИТЬ К ПРОСМОТРУ</h1>
+      <div class="subtitle">Расскажи, что хочешь увидеть на сайте</div>
+    </header>
+
+    <div class="split">
+      <!-- Левая половина — Telegram -->
+      <div class="half">
+        <h2>Быстро и просто</h2>
+        <p style="font-size: 1.3em; opacity: 0.9; margin: 20px 0 40px;">
+          Самый быстрый способ — написать мне в Telegram
+        </p>
+        <a href="https://t.me/samogon_goni" target="_blank" class="telegram-btn">
+          <span style="font-size: 2em;">📱</span> Написать в Telegram
+        </a>
+      </div>
+
+      <!-- Правая половина — форма -->
+      <div class="half">
+        <h2>Через форму</h2>
+        <form id="suggestionForm">
+          <input type="text" id="name" placeholder="Твоё имя или ник" required>
+          <textarea id="text" placeholder="Что хочешь посмотреть? (название, ссылка, описание — чем подробнее, тем лучше)" required></textarea>
+          <button type="submit">Отправить</button>
+        </form>
+
+        <div id="successMsg" class="success">Предложение отправлено! Спасибо 🔥</div>
+        <div id="errorMsg" class="error">Не удалось отправить. Попробуй в Telegram.</div>
+      </div>
     </div>
 
-    <!-- Правая половина — форма -->
-    <div class="right">
-      <h1>Через форму</h1>
-      <form id="suggestionForm">
-        <input type="text" id="name" placeholder="Твоё имя или ник" required>
-        <textarea id="text" placeholder="Что хочешь посмотреть? (название, ссылка, описание — чем подробнее, тем лучше)" required></textarea>
-        <button type="submit">Отправить предложение</button>
-      </form>
+    <a href="../" class="back-btn">← На главную</a>
 
-      <div id="successMsg" class="success">Предложение отправлено! Спасибо 🔥</div>
-      <div id="errorMsg" class="error">Не удалось отправить. Попробуй позже или напиши в Telegram.</div>
-    </div>
+    <footer>© 2026 Movie C2H5OH</footer>
   </div>
 
   <script>
