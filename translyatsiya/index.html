@@ -28,12 +28,31 @@
         .player-container {
             flex: 1;
             display: flex;
+            flex-direction: column;
+            position: relative;
         }
         iframe {
             flex: 1;
             border: none;
             width: 100%;
             height: 100%;
+        }
+        .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        .fullscreen-btn:hover {
+            background: rgba(255,69,0,0.6);
         }
         .back {
             padding: 20px;
@@ -56,7 +75,12 @@
     </div>
 
     <div class="player-container">
+        <!-- Кнопка "На весь экран" -->
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">На весь экран</button>
+
+        <!-- Jitsi Meet iframe -->
         <iframe
+            id="jitsi-iframe"
             src="https://meet.jit.si/кинокомнатаc2h5oh"
             allow="camera; microphone; fullscreen; display-capture"
         ></iframe>
@@ -65,5 +89,18 @@
     <div class="back">
         <a href="../">← На главную</a>
     </div>
+
+    <script>
+        function toggleFullscreen() {
+            const iframe = document.getElementById('jitsi-iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) { /* Safari */
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { /* IE11 */
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>
