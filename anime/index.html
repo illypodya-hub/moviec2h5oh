@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аниме - Movie C2H5OH</title>
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            margin: 0;
-            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
             background-size: cover;
@@ -17,66 +16,52 @@
         .overlay {
             background: rgba(10, 10, 10, 0.78);
             min-height: 100vh;
-            padding: 40px 30px 100px;
-            box-sizing: border-box;
+            padding: 20px 30px;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
-        .logo {
-            max-width: 220px;
-            height: auto;
-            margin: 30px 0;
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
+        header {
+            text-align: center;
+            padding: 30px 0 20px;
+            position: relative;
         }
         h1 {
-            font-size: 4.5em;
+            font-size: 3.5em;
             font-weight: bold;
-            color: #ff4500;
             text-shadow: 0 0 25px #ff4500;
-            margin: 0 0 20px;
-            text-align: center;
+            color: #ff4500;
+            margin: 0;
         }
         .subtitle {
-            font-size: 1.6em;
+            font-size: 1.3em;
             opacity: 0.9;
-            margin-bottom: 30px;
+            margin: 8px 0 5px;
+        }
+        .social {
+            position: absolute;
+            top: 30px;
+            right: 40px;
             text-align: center;
         }
-        .social-icons {
-            margin: 30px 0 50px;
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-        }
         .social-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            color: white;
             text-decoration: none;
-            color: #ffffff;
-            font-size: 1.2em;
+            font-size: 0.9em;
             transition: all 0.3s;
         }
-        .social-link:hover {
-            color: #ff4500;
-            transform: scale(1.1);
-        }
-        .social-emoji {
-            font-size: 3em;
-            margin-bottom: 8px;
-        }
+        .social-link:hover { color: #ff4500; transform: scale(1.1); }
+        .social-emoji { font-size: 2.2em; margin-bottom: 3px; }
         .anime-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
             max-width: 1200px;
             width: 100%;
-            padding: 20px;
+            margin: 0 auto;
         }
         .anime-card {
-            background: rgba(30, 30, 30, 0.9);
+            background: rgba(30, 30, 30, 0.85);
+            border: 2px solid #333;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
@@ -84,7 +69,6 @@
             text-decoration: none;
             color: white;
             display: block;
-            position: relative;
             cursor: pointer;
         }
         .anime-card:hover {
@@ -93,9 +77,9 @@
         }
         .anime-poster {
             width: 100%;
-            height: 400px;           /* фиксированная высота, как в фильмах */
-            object-fit: contain;     /* всё влезает целиком, без обрезки */
-            background: #111;        /* тёмный фон, чтобы не было белых полос */
+            height: 400px;
+            object-fit: contain;
+            background: #111;
             display: block;
         }
         .anime-info {
@@ -122,7 +106,7 @@
             background: #ff6600;
         }
         .back-btn {
-            margin: 50px 0 40px;
+            margin: 40px 0;
             color: #ff4500;
             font-size: 1.6em;
             text-decoration: none;
@@ -135,37 +119,43 @@
             background: rgba(255,69,0,0.2);
         }
         footer {
+            text-align: center;
+            padding: 20px 0;
             font-size: 1em;
             opacity: 0.7;
-            margin-top: auto;
-            padding-top: 30px;
-            text-align: center;
+        }
+
+        /* Мобильные */
+        @media (max-width: 768px) {
+            header { padding: 60px 0 20px; }
+            h1 { font-size: 2.6em; }
+            .subtitle { font-size: 1.1em; }
+            .social { top: 20px; right: 20px; }
+            .social-emoji { font-size: 2em; }
+            .anime-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+            .anime-poster { height: 300px; }
+            .anime-title { font-size: 1.6em; }
+            .back-btn { font-size: 1.4em; padding: 12px 30px; }
         }
     </style>
 </head>
 <body>
     <div class="overlay">
-        <img
-            src="../photo_2026-01-10_16-49-16-removebg-preview.png"
-            alt="Королевство C2H5OH"
-            class="logo"
-        >
-        <h1>АНИМЕ</h1>
-        <div class="subtitle">КИНОКОМНАТА С2H5OH 🍿🔥</div>
+        <header>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="text-align: center; flex: 1;">
+                    <h1>АНИМЕ</h1>
+                    <div class="subtitle">КИНОКОМНАТА С2H5OH 🍿🔥</div>
+                </div>
+                <div class="social">
+                    <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
+                        <span class="social-emoji">📱</span>
+                        Telegram
+                    </a>
+                </div>
+            </div>
+        </header>
 
-        <!-- Социалки под заголовком -->
-        <div class="social-icons">
-            <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
-                <span class="social-emoji">📱</span>
-                Telegram
-            </a>
-            <a href="https://discord.gg/xZW75EtY" target="_blank" class="social-link">
-                <span class="social-emoji">🎮</span>
-                Discord
-            </a>
-        </div>
-
-        <!-- Сетка с аниме -->
         <div class="anime-grid">
             <!-- Человек-бензопила -->
             <a href="chelovek-benzopila/" class="anime-card">
@@ -176,7 +166,7 @@
                 >
                 <div class="anime-info">
                     <div class="anime-title">ЧЕЛОВЕК БЕНЗОПИЛА</div>
-                    <div class="watch-btn">Просмотрено</div>
+                    <div class="watch-btn">Смотреть</div>
                 </div>
             </a>
 
@@ -207,12 +197,9 @@
             </a>
         </div>
 
-        <a href="../" class="back-btn">← На главную</a>
+        <a href="../" class="back-btn">← Назад к категориям</a>
 
-        <footer>
-            © 2026 Movie C2H5OH
-        </footer>
+        <footer>© 2026 Movie C2H5OH</footer>
     </div>
 </body>
 </html>
-
