@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Фильмы - Movie C2H5OH</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
+            margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
             background-size: cover;
@@ -16,52 +17,66 @@
         .overlay {
             background: rgba(10, 10, 10, 0.78);
             min-height: 100vh;
-            padding: 20px 30px;
+            padding: 40px 30px 100px;
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
-        header {
-            text-align: center;
-            padding: 30px 0 20px;
-            position: relative;
+        .logo {
+            max-width: 220px;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
         }
         h1 {
-            font-size: 3.5em;
+            font-size: 4.5em;
             font-weight: bold;
-            text-shadow: 0 0 25px #ff4500;
             color: #ff4500;
-            margin: 0;
-        }
-        .subtitle {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin: 8px 0 5px;
-        }
-        .social {
-            position: absolute;
-            top: 30px;
-            right: 40px;
+            text-shadow: 0 0 25px #ff4500;
+            margin: 0 0 20px;
             text-align: center;
         }
+        .subtitle {
+            font-size: 1.6em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .social-icons {
+            margin: 30px 0 50px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
         .social-link {
-            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-decoration: none;
-            font-size: 0.9em;
+            color: #ffffff;
+            font-size: 1.2em;
             transition: all 0.3s;
         }
-        .social-link:hover { color: #ff4500; transform: scale(1.1); }
-        .social-emoji { font-size: 2.2em; margin-bottom: 3px; }
+        .social-link:hover {
+            color: #ff4500;
+            transform: scale(1.1);
+        }
+        .social-emoji {
+            font-size: 3em;
+            margin-bottom: 8px;
+        }
         .films-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
             max-width: 1200px;
             width: 100%;
-            margin: 0 auto;
+            padding: 20px;
         }
         .film-card {
-            background: rgba(30, 30, 30, 0.85);
-            border: 2px solid #333;
+            background: rgba(30, 30, 30, 0.9);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
@@ -69,6 +84,7 @@
             text-decoration: none;
             color: white;
             display: block;
+            position: relative;
             cursor: pointer;
         }
         .film-card:hover {
@@ -76,3 +92,113 @@
             box-shadow: 0 20px 50px rgba(255,69,0,0.5);
         }
         .film-poster {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: #111;
+            display: block;
+        }
+        .film-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .film-title {
+            font-size: 1.8em;
+            margin: 0 0 10px;
+            color: #ff4500;
+        }
+        .watch-btn {
+            display: inline-block;
+            background: #ff4500;
+            color: white;
+            font-size: 1.2em;
+            padding: 12px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .watch-btn:hover {
+            background: #ff6600;
+        }
+        .back-btn {
+            margin: 50px 0 40px;
+            color: #ff4500;
+            font-size: 1.6em;
+            text-decoration: none;
+            border: 2px solid #ff4500;
+            padding: 15px 40px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: rgba(255,69,0,0.2);
+        }
+        footer {
+            font-size: 1em;
+            opacity: 0.7;
+            margin-top: auto;
+            padding-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <img
+            src="../photo_2026-01-10_16-49-16-removebg-preview.png"
+            alt="Королевство C2H5OH"
+            class="logo"
+        >
+        <h1>ФИЛЬМЫ</h1>
+        <div class="subtitle">КИНОКОМНАТА С2H5OH 🍿🔥</div>
+
+        <!-- Социалки под заголовком -->
+        <div class="social-icons">
+            <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
+                <span class="social-emoji">📱</span>
+                Telegram
+            </a>
+            <a href="https://discord.gg/xZW75EtY" target="_blank" class="social-link">
+                <span class="social-emoji">🎮</span>
+                Discord
+            </a>
+        </div>
+
+        <!-- Сетка с фильмами -->
+        <div class="films-grid">
+            <!-- Гринч -->
+            <a href="grinch/" class="film-card">
+                <img
+                    src="https://images.kinorium.com/movie/poster/141877/w1500_54783557.jpg"
+                    alt="Гринч - Похититель Рождества"
+                    class="film-poster"
+                >
+                <div class="film-info">
+                    <div class="film-title">Гринч - Похититель Рождества (2000)</div>
+                    <div class="watch-btn">Смотреть</div>
+                </div>
+            </a>
+
+            <!-- Американский пирог -->
+            <a href="american-pie/" class="film-card">
+                <img
+                    src="https://images.kinorium.com/movie/poster/137230/w1500_51613762.jpg"
+                    alt="Американский пирог"
+                    class="film-poster"
+                >
+                <div class="film-info">
+                    <div class="film-title">Американский пирог (1999)</div>
+                    <div class="watch-btn">Смотреть</div>
+                </div>
+            </a>
+        </div>
+
+        <a href="../" class="back-btn">← На главную</a>
+
+        <footer>
+            © 2026 Movie C2H5OH
+        </footer>
+    </div>
+</body>
+</html>
