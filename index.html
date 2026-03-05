@@ -18,11 +18,11 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding: 0 30px;
+            padding: 20px 30px;
         }
         header {
             text-align: center;
-            padding: 40px 0 30px;
+            padding: 30px 0 20px;
         }
         h1 {
             font-size: 4em;
@@ -43,7 +43,7 @@
         }
         .social {
             position: absolute;
-            top: 50px;
+            top: 40px;
             right: 40px;
             text-align: center;
         }
@@ -59,15 +59,15 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            margin: 200px auto 30px; /* ← 200px от текста до кнопок */
+            margin: 160px auto 20px; /* ← отступ от текста до кнопок 160px */
             max-width: 900px;
             width: 100%;
         }
         .action-btn {
             background: rgba(30, 30, 30, 0.85);
             border: 2px solid #333;
-            border-radius: 14px;
-            height: 140px;
+            border-radius: 16px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -91,38 +91,45 @@
             padding-top: 0;
         }
         .categories {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 25px;
-            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
             max-width: 1200px;
-            justify-content: center;
+            width: 100%;
         }
         .card {
             background: rgba(30, 30, 30, 0.85);
             border: 2px solid #333;
-            border-radius: 14px;
-            width: 220px;
-            height: 140px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            transition: all 0.4s ease;
+            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8em;
+            height: 180px;
+            font-size: 2.6em;
             font-weight: bold;
-            color: #ff4500;
-            text-decoration: none;
-            transition: all 0.3s;
             text-align: center;
+            text-shadow: 0 0 15px #000;
+            position: relative;
+            color: #ff4500;
+            cursor: pointer;
         }
         .card:hover {
-            transform: scale(1.08);
+            transform: scale(1.1);
             border-color: #ff4500;
-            box-shadow: 0 12px 30px rgba(255,69,0,0.4);
+            box-shadow: 0 20px 50px rgba(255,69,0,0.6);
+            background: rgba(50, 50, 50, 0.95);
+        }
+        .card span {
+            padding: 20px;
         }
         footer {
             text-align: center;
-            padding: 10px 0;
-            font-size: 0.8em;
+            padding: 20px 0;
+            font-size: 1em;
             opacity: 0.7;
         }
 
@@ -140,11 +147,10 @@
             }
             .action-btn { height: 100px; font-size: 1.6em; }
             .categories {
-                flex-wrap: wrap;
-                gap: 15px;
-                justify-content: center;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
             }
-            .card { width: 160px; height: 110px; font-size: 1.4em; }
+            .card { height: 140px; font-size: 1.8em; }
         }
     </style>
 </head>
@@ -166,7 +172,7 @@
             </div>
         </header>
 
-        <!-- Кнопки над жанрами -->
+        <!-- Кнопки над жанрами, отступ от текста 200px -->
         <div class="action-row">
             <a href="translyatsiya/" target="_blank" class="action-btn">
                 <span>ПРОСМОТР</span>
