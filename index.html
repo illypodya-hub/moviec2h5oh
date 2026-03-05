@@ -21,8 +21,10 @@
             flex-direction: column;
             padding: 20px 30px;
         }
-        header {
-            text-align: center;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             padding: 20px 0 10px;
         }
         h1 {
@@ -38,9 +40,6 @@
             margin: 5px 0;
         }
         .social {
-            position: absolute;
-            top: 30px;
-            right: 40px;
             text-align: center;
         }
         .social-link {
@@ -55,7 +54,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            margin: 10px auto 20px; /* ← уменьшил отступ сверху и снизу, теперь ближе к жанрам */
+            margin: 10px auto 15px; /* ← максимально близко к жанрам */
             max-width: 800px;
             width: 100%;
         }
@@ -125,12 +124,11 @@
         @media (max-width: 768px) {
             h1 { font-size: 2.4em; }
             .subtitle { font-size: 1em; }
-            .social { top: 20px; right: 20px; }
             .social-emoji { font-size: 2em; }
             .action-row {
                 grid-template-columns: 1fr;
                 gap: 15px;
-                margin: 15px auto 20px;
+                margin: 10px auto 15px;
             }
             .action-btn { height: 100px; font-size: 1.6em; }
             .categories {
@@ -146,7 +144,11 @@
     <div class="overlay">
         <header>
             <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <h1>Movie C2H5OH</h1>
+                <div>
+                    <h1>Movie C2H5OH</h1>
+                    <div class="subtitle">КИНОКОМНАТА С2H5OH 🍿🔥</div>
+                    <div class="subtitle">Смотри всё бесплатно, с живыми комментариями</div>
+                </div>
                 <div class="social">
                     <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
                         <span class="social-emoji">📱</span>
@@ -154,11 +156,9 @@
                     </a>
                 </div>
             </div>
-            <div class="subtitle">КИНОКОМНАТА С2H5OH 🍿🔥</div>
-            <div class="subtitle">Смотри всё бесплатно, с живыми комментариями</div>
         </header>
 
-        <!-- Кнопки над жанрами -->
+        <!-- Кнопки над жанрами, ближе к ним -->
         <div class="action-row">
             <a href="translyatsiya/" target="_blank" class="action-btn">
                 <span>ПРОСМОТР</span>
