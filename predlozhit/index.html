@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Предложить к просмотру — Movie C2H5OH</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow: hidden;
+    }
+    .split {
+      display: flex;
+      height: 100%;
+    }
+    .left, .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+    .left {
+      background: rgba(0, 0, 0, 0.4);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .right {
+      background: rgba(255, 69, 0, 0.08);
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px #ff4500;
+      text-align: center;
+    }
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #0088cc;
+      color: white;
+      padding: 18px 40px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 30px rgba(0, 136, 204, 0.35);
+    }
+    .telegram-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 136, 204, 0.55);
+      background: #0099e6;
+    }
+    form {
+      width: 100%;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      outline: none;
+      transition: all 0.25s;
+    }
+    input:focus, textarea:focus {
+      border-color: #ff4500;
+      box-shadow: 0 0 0 3px rgba(255,69,0,0.3);
+      background: rgba(255,255,255,0.12);
+    }
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+    button {
+      background: #ff4500;
+      color: white;
+      border: none;
+      padding: 18px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #ff6600;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255,69,0,0.4);
+    }
+    .success {
+      color: #00ff88;
+      font-size: 1.3rem;
+      margin-top: 20px;
+      display: none;
+    }
+    .error {
+      color: #ff5555;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="split">
+    <!-- Левая половина — Telegram -->
+    <div class="left">
+      <h1>Быстрый способ</h1>
+      <p style="font-size: 1.3rem; margin: 0 0 40px; opacity: 0.9;">
+        Самый простой и быстрый вариант — написать в Telegram
+      </p>
+      <a href="https://t.me/samogon_goni" target="_blank" class="telegram-btn">
+        <span style="font-size: 1.8em;">📱</span> Написать в Telegram
+      </a>
+    </div>
+
+    <!-- Правая половина — форма -->
+    <div class="right">
+      <h1>Через форму</h1>
+      <form id="suggestionForm">
+        <input type="text" id="name" placeholder="Твоё имя или ник" required>
+        <textarea id="text" placeholder="Что хочешь посмотреть? (название, ссылка, описание — чем подробнее, тем лучше)" required></textarea>
+        <button type="submit">Отправить предложение</button>
+      </form>
+
+      <div id="successMsg" class="success">Предложение отправлено! Спасибо 🔥</div>
+      <div id="errorMsg" class="error">Не удалось отправить. Попробуй позже или напиши в Telegram.</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('suggestionForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const text = document.getElementById('text').value.trim();
+
+      if (!name || !text) {
+        alert('Заполни оба поля');
+        return;
+      }
+
+      try {
+        const res = await fetch('/save-suggestion.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, text })
+        });
+
+        if (res.ok) {
+          document.getElementById('successMsg').style.display = 'block';
+          document.getElementById('errorMsg').style.display = 'none';
+          document.getElementById('suggestionForm').reset();
+        } else {
+          throw new Error();
+        }
+      } catch (err) {
+        document.getElementById('successMsg').style.display = 'none';
+        document.getElementById('errorMsg').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
