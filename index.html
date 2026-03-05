@@ -110,9 +110,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 35px;
-            margin-top: 40px;
-            width: 100%;
-            max-width: 1200px;
+            margin: 60px auto 0; /* ↑ сдвиг вниз + центрирование */
+            max-width: 800px;    /* ← уменьшил ширину, чтобы кнопки были по центру, а не растянуты на весь экран */
             padding: 0 20px;
         }
         .action-btn {
@@ -176,7 +175,7 @@
             </div>
         </div>
 
-        <!-- Две большие кнопки пополам -->
+        <!-- Две большие кнопки пополам, по центру экрана -->
         <div class="action-row">
             <a href="https://discord.gg/KUYHEuh3" target="_blank" class="action-btn">
                 <span>ПРЕДЛОЖИТЬ К ПРОСМОТРУ</span>
