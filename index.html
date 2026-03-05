@@ -5,131 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie C2H5OH - Главная</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
+            margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
         }
         .overlay {
             background: rgba(10, 10, 10, 0.75);
-            height: 100%;
+            min-height: 100vh;
+            padding: 40px 30px;
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            padding: 30px 40px;
         }
         header {
             text-align: center;
-            padding: 20px 0 10px;
+            padding: 40px 0 20px;
         }
         h1 {
-            font-size: 3.8em;
-            font-weight: bold;
-            text-shadow: 0 0 20px #ff4500;
-            color: #ff4500;
             margin: 0;
+            font-size: 4.5em;
+            font-weight: bold;
+            text-shadow: 0 0 25px #ff4500, 0 0 50px #ff0000;
+            letter-spacing: 5px;
+            color: #ff4500;
         }
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.4em;
             opacity: 0.9;
-            margin: 5px 0;
+            margin: 10px 0;
+            letter-spacing: 1px;
         }
         .social-icons {
-            margin: 15px 0 25px;
+            margin: 30px 0 50px;
             display: flex;
             justify-content: center;
-            gap: 60px;
+            gap: 80px;
         }
         .social-link {
-            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-decoration: none;
-            font-size: 0.9em;
+            color: #ffffff;
+            font-size: 1.2em;
             transition: all 0.3s;
         }
-        .social-link:hover { color: #ff4500; transform: scale(1.1); }
-        .social-emoji { font-size: 2.2em; margin-bottom: 4px; }
+        .social-link:hover {
+            color: #ff4500;
+            transform: scale(1.1);
+        }
+        .social-emoji {
+            font-size: 3em;
+            margin-bottom: 8px;
+        }
         .action-row {
             display: grid;
-            grid-template-columns: 1fr;
-            margin: 20px auto 30px;
-            max-width: 500px;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin: 0 auto 60px; /* ↑ кнопки над жанрами, с отступом снизу */
+            max-width: 900px;
             width: 100%;
+            padding: 0 20px;
         }
         .action-btn {
             background: rgba(30, 30, 30, 0.85);
             border: 2px solid #333;
-            border-radius: 14px;
-            height: 140px;
+            border-radius: 16px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.2em;
+            font-size: 2.6em;
             font-weight: bold;
-            color: #ff4500;
-            text-decoration: none;
-            transition: all 0.3s;
             text-align: center;
+            text-shadow: 0 0 15px #000;
+            color: #ff4500;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
         }
         .action-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
             border-color: #ff4500;
+            box-shadow: 0 20px 50px rgba(255,69,0,0.6);
             background: rgba(50, 50, 50, 0.95);
         }
-        .categories-container {
+        .container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
         .categories {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 25px;
-            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
             max-width: 1200px;
-            justify-content: center;
+            width: 100%;
         }
         .card {
             background: rgba(30, 30, 30, 0.85);
             border: 2px solid #333;
-            border-radius: 14px;
-            width: 220px;
-            height: 140px; /* ← уменьшил высоту, теперь точно влезает на 1920×1080 */
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            transition: all 0.4s ease;
+            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2em;
+            height: 180px;
+            font-size: 2.6em;
             font-weight: bold;
-            color: #ff4500;
-            text-decoration: none;
-            transition: all 0.3s;
             text-align: center;
+            text-shadow: 0 0 15px #000;
+            position: relative;
+            color: #ff4500;
+            cursor: pointer;
         }
         .card:hover {
-            transform: scale(1.08);
+            transform: scale(1.1);
             border-color: #ff4500;
-            box-shadow: 0 15px 40px rgba(255,69,0,0.5);
+            box-shadow: 0 20px 50px rgba(255,69,0,0.6);
+            background: rgba(50, 50, 50, 0.95);
+        }
+        .card span {
+            padding: 20px;
         }
         footer {
             text-align: center;
-            padding: 15px 0;
-            font-size: 0.9em;
+            padding: 20px 0;
+            font-size: 1em;
             opacity: 0.7;
-        }
-
-        /* Мобильные (до 768px) */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.6em; }
-            .subtitle { font-size: 1em; }
-            .social-icons { gap: 40px; }
-            .social-emoji { font-size: 2em; }
-            .action-row { grid-template-columns: 1fr; gap: 15px; margin: 15px auto 20px; }
-            .action-btn { height: 100px; font-size: 1.6em; }
-            .categories { flex-wrap: wrap; gap: 15px; justify-content: center; }
-            .card { width: 160px; height: 120px; font-size: 1.4em; }
         }
     </style>
 </head>
@@ -152,17 +165,17 @@
             </a>
         </div>
 
-        <!-- Кнопки над жанрами (ПРЕДЛОЖИТЬ слева, ПРОСМОТР справа) -->
+        <!-- Кнопки над жанрами, как раньше -->
         <div class="action-row">
-            <a href="https://discord.gg/KUYHEuh3" target="_blank" class="action-btn">
-                <span>ПРЕДЛОЖИТЬ</span>
-            </a>
             <a href="translyatsiya/" target="_blank" class="action-btn">
                 <span>ПРОСМОТР</span>
             </a>
+            <a href="https://discord.gg/KUYHEuh3" target="_blank" class="action-btn">
+                <span>ПРЕДЛОЖИТЬ</span>
+            </a>
         </div>
 
-        <div class="categories-container">
+        <div class="container">
             <div class="categories">
                 <a href="filmy/" class="card"><span>ФИЛЬМЫ</span></a>
                 <a href="serialy/" class="card"><span>СЕРИАЛЫ</span></a>
