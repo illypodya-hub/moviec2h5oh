@@ -1,133 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube - Movie C2H5OH</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
-            background-size: cover;
-            color: #ffffff;
-            min-height: 100vh;
-        }
-        .overlay {
-            background: rgba(10, 10, 10, 0.78);
-            min-height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .logo {
-            max-width: 220px;
-            height: auto;
-            margin-bottom: 30px;
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(255, 69, 0, 0.5);
-        }
-        h1 {
-            font-size: 4.5em;
-            font-weight: bold;
-            color: #ff4500;
-            text-shadow: 0 0 25px #ff4500, 0 0 50px #ff0000;
-            margin: 0 0 20px;
-            letter-spacing: 3px;
-        }
-        .subtitle {
-            font-size: 1.8em;
-            opacity: 0.9;
-            margin: 0 0 40px;
-        }
-        .message {
-            font-size: 1.8em;
-            max-width: 900px;
-            line-height: 1.6;
-            margin: 0 0 50px;
-        }
-        .back-btn {
-            display: inline-block;
-            color: #ff4500;
-            font-size: 1.8em;
-            font-weight: bold;
-            text-decoration: none;
-            border: 3px solid #ff4500;
-            padding: 20px 60px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-        .back-btn:hover {
-            background: rgba(255,69,0,0.2);
-            transform: scale(1.1);
-        }
-        .social-icons {
-            margin: 20px 0 40px;
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-        }
-        .social-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 1.2em;
-            transition: all 0.3s;
-        }
-        .social-link:hover {
-            color: #ff4500;
-            transform: scale(1.1);
-        }
-        .social-emoji {
-            font-size: 3em;
-            margin-bottom: 8px;
-        }
-        footer {
-            font-size: 1em;
-            opacity: 0.7;
-            margin-top: auto;
-            padding-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube - Movie C2H5OH</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .overlay {
+      background: rgba(10, 10, 10, 0.78);
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .social {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      text-align: center;
+    }
+    .social-link {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: all 0.3s;
+    }
+    .social-link:hover { color: #ff4500; transform: scale(1.1); }
+    .social-emoji { font-size: 2.2em; margin-bottom: 3px; }
+    h1 {
+      font-size: 3.5em;
+      color: #ff4500;
+      text-shadow: 0 0 20px #ff4500;
+      margin: 0 0 15px;
+    }
+    .subtitle {
+      font-size: 1.4em;
+      opacity: 0.9;
+      margin: 0 0 30px;
+    }
+    .message {
+      font-size: 1.4em;
+      max-width: 900px;
+      line-height: 1.6;
+      margin: 0 0 50px;
+    }
+    .back-btn {
+      color: #ff4500;
+      font-size: 1.6em;
+      text-decoration: none;
+      border: 2px solid #ff4500;
+      padding: 15px 40px;
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+    .back-btn:hover {
+      background: rgba(255,69,0,0.2);
+    }
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.6em; }
+      .subtitle { font-size: 1.2em; }
+      .social { top: 20px; right: 20px; }
+      .social-emoji { font-size: 2em; }
+      .message { font-size: 1.2em; }
+      .back-btn { font-size: 1.4em; padding: 12px 30px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="overlay">
-        <img
-            src="../photo_2026-01-10_16-49-16-removebg-preview.png"
-            alt="Королевство C2H5OH"
-            class="logo"
-        >
-
-        <!-- Социалки под логотипом -->
-        <div class="social-icons">
-            <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
-                <span class="social-emoji">📱</span>
-                Telegram
-            </a>
-            <a href="https://discord.gg/xZW75EtY" target="_blank" class="social-link">
-                <span class="social-emoji">🎮</span>
-                Discord
-            </a>
-        </div>
-
-        <h1>YOUTUBE</h1>
-        <div class="subtitle">КИНОКОМНАТА С2H5OH 🍿🔥</div>
-        
-        <div class="message">
-            Пока здесь пусто 😅<br>
-            Но если у тебя есть предложения, что посмотреть из ютубчиков — возвращайся на главную и тыкай "ПРЕДЛОЖИТЬ К ПРОСМОТРУ" или пиши в чат Telegram сразу и обсудим.<br>
-            Наполнение очереди зависит только от вас и вашего желания проводить время за совместным просмотром контента.
-        </div>
-
-        <a href="../" class="back-btn">← На главную</a>
-
-        <footer>© 2026 Movie C2H5OH</footer>
+  <div class="overlay">
+    <div class="social">
+      <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
+        <span class="social-emoji">📱</span>
+        Telegram
+      </a>
     </div>
+
+    <h1>YOUTUBE</h1>
+    <div class="subtitle">КИНОКОМНАТА С2H5OH 🍿🔥</div>
+
+    <div class="message">
+      Пока здесь пусто 😅<br>
+      Но если у тебя есть предложения, что посмотреть из ютубчиков — возвращайся на главную и тыкай "ПРЕДЛОЖИТЬ"<br>
+      Наполнение очереди зависит только от вас и вашего желания проводить время за совместным просмотром контента.
+    </div>
+
+    <a href="../" class="back-btn">← На главную</a>
+
+    <footer>© 2026 Movie C2H5OH</footer>
+  </div>
 </body>
 </html>
