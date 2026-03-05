@@ -25,7 +25,7 @@
     }
     header {
       text-align: center;
-      padding: 20px 0 25px;
+      padding: 25px 0 30px;
     }
     h1 {
       font-size: 3em;
@@ -34,14 +34,14 @@
       margin: 0 0 10px;
     }
     .subtitle {
-      font-size: 1.2em;
+      font-size: 1.3em;
       opacity: 0.9;
     }
     .split {
       flex: 1;
       display: flex;
-      gap: 20px;
-      max-width: 1200px;
+      gap: 25px;
+      max-width: 1100px;
       width: 100%;
       margin: 0 auto;
       flex-wrap: wrap;
@@ -49,7 +49,7 @@
     .half {
       flex: 1;
       min-width: 320px;
-      padding: 30px;
+      padding: 35px 25px;
       border-radius: 16px;
       background: rgba(30, 30, 30, 0.85);
       box-shadow: 0 10px 30px rgba(0,0,0,0.7);
@@ -59,29 +59,36 @@
       align-items: center;
       text-align: center;
     }
-    .telegram-btn {
+    .telegram-btn, .form-btn {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: #0088cc;
+      background: #ff4500;
       color: white;
-      padding: 16px 40px;
-      font-size: 1.4em;
+      padding: 18px 45px;
+      font-size: 1.5em;
       font-weight: bold;
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.3s;
-      box-shadow: 0 6px 20px rgba(0,136,204,0.4);
+      box-shadow: 0 8px 25px rgba(255,69,0,0.4);
+      margin-top: 20px;
     }
-    .telegram-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0,136,204,0.6);
-      background: #0099e6;
+    .telegram-btn:hover, .form-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255,69,0,0.6);
+      background: #ff6600;
+    }
+    p.desc {
+      font-size: 1.25em;
+      opacity: 0.9;
+      margin: 15px 0 30px;
+      max-width: 380px;
     }
     .back-btn {
-      margin: 30px 0 20px;
+      margin: 35px 0 20px;
       color: #ff4500;
-      font-size: 1.5em;
+      font-size: 1.6em;
       text-decoration: none;
       border: 2px solid #ff4500;
       padding: 12px 40px;
@@ -97,6 +104,16 @@
       font-size: 0.9em;
       opacity: 0.7;
     }
+
+    /* Мобильные */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4em; }
+      .subtitle { font-size: 1.1em; }
+      .split { flex-direction: column; gap: 25px; }
+      .half { padding: 25px 20px; }
+      .telegram-btn, .form-btn { font-size: 1.3em; padding: 14px 35px; }
+      .desc { font-size: 1.1em; }
+    }
   </style>
 </head>
 <body>
@@ -109,23 +126,24 @@
     <div class="split">
       <!-- Левая половина — Telegram -->
       <div class="half">
-        <h2>Быстро в Telegram</h2>
-        <p style="font-size: 1.2em; opacity: 0.9; margin: 15px 0 30px;">
-          Самый быстрый способ — написать мне
+        <h2>Быстро и просто</h2>
+        <p class="desc">
+          Напиши мне в Telegram — самое быстрое решение. Добавим всё, что предложишь!
         </p>
-        <a href="https://t.me/samogon_goni" target="_blank" class="telegram-btn">
-          <span style="font-size: 1.8em;">📱</span> Написать
+        <a href="https://t.me/samogon_goni?text=Привет%20я%20с%20сайта%20movie%20C2H5OH%20!%20Хочу%20предложить%20контент%20к%20просмотру" target="_blank" class="telegram-btn">
+          <span style="font-size: 1.8em;">📱</span> Написать в Telegram
         </a>
       </div>
 
-      <!-- Правая половина — Google Form -->
+      <!-- Правая половина — кнопка на Google Form -->
       <div class="half">
         <h2>Через форму</h2>
-        <p style="font-size: 1.2em; opacity: 0.9; margin: 15px 0 20px;">
-          Заполни форму ниже — всё придёт мне автоматически!
+        <p class="desc">
+          Заполни небольшую форму — всё придёт мне автоматически. Чем подробнее напишешь, тем быстрее добавим!
         </p>
-        <!-- Вставь свою ссылку на Google Form (вместо этой) -->
-        <iframe src="https://forms.gle/7vcvoHoHiwb313mK8" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+        <a href="https://forms.gle/7vcvoHoHiwb313mK8" target="_blank" class="form-btn">
+          Заполнить форму
+        </a>
       </div>
     </div>
 
