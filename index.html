@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie C2H5OH - Главная</title>
+    <!-- PWA: манифест и тема -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff4500">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -125,7 +128,6 @@
             font-size: 0.8em;
             opacity: 0.7;
         }
-
         /* Мобильные (до 768px) */
         @media (max-width: 768px) {
             header { padding: 60px 0 30px; }
@@ -166,7 +168,7 @@
             </div>
         </header>
 
-        <!-- Кнопки над жанрами, отступ от текста 160px -->
+        <!-- Кнопки над жанрами -->
         <div class="action-row">
             <a href="translyatsiya/" class="action-btn">
                 <span>ПРОСМОТР</span>
@@ -191,5 +193,16 @@
             © 2026 Movie C2H5OH
         </footer>
     </div>
+
+    <!-- PWA: регистрация Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker зарегистрирован'))
+            .catch(err => console.log('Ошибка SW:', err));
+        });
+      }
+    </script>
 </body>
 </html>
