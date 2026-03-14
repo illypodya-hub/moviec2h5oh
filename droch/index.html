@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>057 SHOP Дрочкоины</title>
+  <title>057 SHOP</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -18,12 +18,34 @@
       padding: 10px;
       border: 2px solid #b366ff;
     }
-    h1 {
-      color: #ff4da6;
+    .header {
       text-align: center;
+      margin-bottom: 6px;
+    }
+    .nickname {
+      color: #ff4da6;
       font-size: 1.9em;
-      margin: 6px 0 4px;
-      text-shadow: 0 0 10px #ff4da6;
+      margin: 0;
+      text-shadow: 0 0 10px #ff4da6, 0 0 20px #ff4da6aa;
+    }
+    .neon-shop {
+      display: inline-block;
+      color: #00ffff;
+      font-size: 2.2em;
+      font-weight: bold;
+      margin: 0;
+      text-shadow: 
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffffaa,
+        0 0 80px #00ffff55;
+      letter-spacing: 2px;
+      animation: neon-glow 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes neon-glow {
+      from { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffffaa; }
+      to   { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffffcc, 0 0 120px #00ffff88; }
     }
     .rule {
       text-align: center;
@@ -67,7 +89,11 @@
 <body>
 
   <div class="container">
-    <h1>057 на связи 💦</h1>
+    <div class="header">
+      <h1 class="nickname">057 на связи</h1>
+      <div class="neon-shop">SHOP</div>
+    </div>
+
     <div class="rule">ТОЛЬКО ОБМЕН<br>никто первый не кидает!</div>
 
     <div class="section-title">ПРОДАМ</div>
