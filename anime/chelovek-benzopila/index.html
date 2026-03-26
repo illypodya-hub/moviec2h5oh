@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Человек-бензопила - Movie C2H5OH</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+<div class="overlay">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+        <!-- Социалки над названием -->
+        <div class="social-icons">
+            <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
+                <span class="social-emoji">📱</span>
+                Telegram
+            </a>
+            <a href="https://discord.gg/xZW75EtY" target="_blank" class="social-link">
+                <span class="social-emoji">🎮</span>
+                Discord
+            </a>
+        </div>
+
+        <h1>ЧЕЛОВЕК-БЕНЗОПИЛА</h1>
+
+        <!-- Кнопки (аниме/фильм) -->
+        <div class="seasons">
+            <div class="season-btn active" data-part="1">Человек-бензопила</div>
+            <div class="season-btn" data-part="2">Человек-бензопила - История Резе</div>
+        </div>
+
+        <!-- Контейнер для серий -->
+        <div class="episodes-container" id="episodes">
+            <!-- Общая кнопка "Смотреть" над списком -->
+            <a href="https://site.yummyani.me/catalog/item/chelovek-benzopila" target="_blank" class="watch-btn" id="common-watch-btn">Смотреть весь сериал</a>
+            <ul class="episodes-list" id="episodes-list"></ul>
+        </div>
+
+        <a href="../" class="back-btn">← Назад к аниме</a>
+
+        <footer>© 2026 Movie C2H5OH</footer>
+    </div>
+
+    <script>
+        // Данные аниме
+        const animeData = {
+            1: [ // Человек-бензопила (12 серий, все просмотрены)
+                { num: 1, status: 'watched' },
+                { num: 2, status: 'watched' },
+                { num: 3, status: 'watched' },
+                { num: 4, status: 'watched' },
+                { num: 5, status: 'watched' },
+                { num: 6, status: 'watched' },
+                { num: 7, status: 'watched' },
+                { num: 8, status: 'watched' },
+                { num: 9, status: 'watched' },
+                { num: 10, status: 'watched' },
+                { num: 11, status: 'watched' },
+                { num: 12, status: 'watched' }
+            ],
+            2: [ // История Резе (полнометражка — просто название, просмотрена)
+                { num: null, title: 'Человек-бензопила - История Резе', status: 'watched' }
+            ]
+        };
+
+        // Тексты статусов
+        const statusTexts = {
+            'not-watched': 'Не просмотрено',
+            'watching': 'Смотрю',
+            'watched': 'Просмотрено'
+        };
+
+        // Ссылки на просмотр (общие для каждого "сезона")
+        const watchLinks = {
+            1: 'https://site.yummyani.me/catalog/item/chelovek-benzopila',
+            2: 'https://site.yummyani.me/catalog/item/chelovek-benzopila-reze'
+        };
+
+        const animeButtons = document.querySelectorAll('.season-btn');
+        const episodesContainer = document.getElementById('episodes');
+        const episodesList = document.getElementById('episodes-list');
+        const commonWatchBtn = document.getElementById('common-watch-btn');
+
+        // Показываем первое аниме по умолчанию
+        showAnime(1);
+
+        animeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const anime = btn.getAttribute('data-part');
+                showAnime(anime);
+
+                animeButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        function showAnime(anime) {
+            episodesList.innerHTML = '';
+            const episodes = animeData[anime] || [];
+
+            // Общая кнопка "Смотреть" над списком
+            commonWatchBtn.href = watchLinks[anime];
+            commonWatchBtn.textContent = anime === '1' ? 'Смотреть весь сериал' : 'Смотреть полнометражку';
+
+            if (episodes.length === 0) {
+                episodesList.innerHTML = '<li style="text-align:center; padding:30px; font-size:1.3em;">Серии ещё не добавлены</li>';
+            } else {
+                episodes.forEach(ep => {
+                    const li = document.createElement('li');
+                    li.className = 'episode-item';
+
+                    const episodeText = ep.num !== null ? `Серия ${ep.num}` : ep.title;
+
+                    li.innerHTML = `
+                        <span class="episode-number">${episodeText}</span>
+                        <span class="episode-status ${ep.status}">
+                            ${statusTexts[ep.status] || 'Не просмотрено'}
+                        </span>
+                    `;
+
+                    episodesList.appendChild(li);
+                });
+            }
+
+            episodesContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
