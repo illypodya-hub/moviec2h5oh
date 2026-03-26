@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПРОСМОТР - Movie C2H5OH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #ff4500;
+        }
+        .player-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        iframe {
+            flex: 1;
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+        .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        .fullscreen-btn:hover {
+            background: rgba(255,69,0,0.6);
+        }
+        .back {
+            padding: 20px;
+            text-align: center;
+        }
+        .back a {
+            color: #ff4500;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+        .back a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ПРОСМОТР</h1>
+        <p>Трансляция экрана от админа</p>
+    </div>
+
+    <div class="player-container">
+        <!-- Кнопка "На весь экран" -->
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">На весь экран</button>
+
+        <!-- Jitsi Meet iframe -->
+        <iframe
+            id="jitsi-iframe"
+            src="https://meet.jit.si/кинокомнатаc2h5oh"
+            allow="camera; microphone; fullscreen; display-capture"
+        ></iframe>
+    </div>
+
+    <div class="back">
+        <a href="../">← На главную</a>
+    </div>
+
+    <script>
+        function toggleFullscreen() {
+            const iframe = document.getElementById('jitsi-iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.webkitRequestFullscreen) { /* Safari */
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { /* IE11 */
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>

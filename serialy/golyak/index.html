@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Голяк - Movie C2H5OH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .overlay {
+            background: rgba(10, 10, 10, 0.78);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            font-size: 3.5em;
+            color: #ff4500;
+            text-shadow: 0 0 20px #ff4500;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        .social-icons {
+            margin: 20px 0 40px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            color: #ff4500;
+            transform: scale(1.1);
+        }
+        .social-emoji {
+            font-size: 3em;
+            margin-bottom: 8px;
+        }
+        .seasons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            max-width: 1100px;
+        }
+        .season-btn {
+            background: rgba(30, 30, 30, 0.9);
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 12px 25px;
+            font-size: 1.3em;
+            color: #ff4500;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 120px;
+            text-align: center;
+        }
+        .season-btn:hover, .season-btn.active {
+            background: rgba(50, 50, 50, 0.95);
+            border-color: #ff4500;
+            transform: scale(1.05);
+        }
+        .episodes-container {
+            width: 100%;
+            max-width: 900px;
+            display: none;
+            background: rgba(20, 20, 20, 0.9);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+        .episodes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .episode-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            font-size: 1.3em;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        .episode-item:hover {
+            background: rgba(50, 50, 50, 0.6);
+        }
+        .episode-item a {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: inherit;
+            text-decoration: none;
+        }
+        .episode-number {
+            color: #fff;
+        }
+        .episode-status {
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            min-width: 140px;
+            text-align: center;
+        }
+        .not-watched { background: #444; color: #ccc; }
+        .watching    { background: #ff6600; color: #fff; }
+        .watched     { background: #2e7d32; color: #fff; }
+        .back-btn {
+            margin: 50px 0 40px;
+            color: #ff4500;
+            font-size: 1.6em;
+            text-decoration: none;
+            border: 2px solid #ff4500;
+            padding: 15px 40px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: rgba(255,69,0,0.2);
+        }
+        footer {
+            font-size: 1em;
+            opacity: 0.7;
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <!-- Социалки над названием -->
+        <div class="social-icons">
+            <a href="https://t.me/samogon_goni" target="_blank" class="social-link">
+                <span class="social-emoji">📱</span>
+                Telegram
+            </a>
+            <a href="https://discord.gg/xZW75EtY" target="_blank" class="social-link">
+                <span class="social-emoji">🎮</span>
+                Discord
+            </a>
+        </div>
+
+        <h1>ГОЛЯК</h1>
+
+        <!-- Кнопки сезонов -->
+        <div class="seasons">
+            <div class="season-btn active" data-season="1">Сезон 1</div>
+            <div class="season-btn" data-season="2">Сезон 2</div>
+            <div class="season-btn" data-season="3">Сезон 3</div>
+            <div class="season-btn" data-season="4">Сезон 4</div>
+            <div class="season-btn" data-season="5">Сезон 5</div>
+            <div class="season-btn" data-season="6">Сезон 6</div>
+            <div class="season-btn" data-season="7">Сезон 7</div>
+        </div>
+
+        <!-- Контейнер для серий -->
+        <div class="episodes-container" id="episodes">
+            <ul class="episodes-list" id="episodes-list"></ul>
+        </div>
+
+        <a href="../" class="back-btn">← Назад к сериалам</a>
+
+        <footer>© 2026 Movie C2H5OH</footer>
+    </div>
+
+    <script>
+        // Данные сезонов и серий с ссылками
+        const seasonsData = {
+            1: [
+                { num: 1, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/1-season/1-episode' },
+                { num: 2, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/1-season/2-episode' },
+                { num: 3, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/1-season/3-episode' },
+                { num: 4, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/1-season/4-episode' },
+                { num: 5, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/1-season/5-episode' },
+                { num: 6, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/1-season/6-episode' }
+            ],
+            2: [
+                { num: 1, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/2-season/1-episode' },
+                { num: 2, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/2-season/2-episode' },
+                { num: 3, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/2-season/3-episode' },
+                { num: 4, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/2-season/4-episode' },
+                { num: 5, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/2-season/5-episode' },
+                { num: 6, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/2-season/6-episode' }
+            ],
+            3: [
+                { num: 1, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/3-season/1-episode' },
+                { num: 2, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/3-season/2-episode' },
+                { num: 3, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/3-season/3-episode' },
+                { num: 4, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/3-season/4-episode' },
+                { num: 5, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/3-season/5-episode' },
+                { num: 6, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/3-season/6-episode' },
+                { num: 7, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/3-season/7-episode' },
+                { num: 8, status: 'watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/3-season/8-episode' }
+            ],
+            4: [
+                { num: 1, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/4-season/1-episode' },
+                { num: 2, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/4-season/2-episode' },
+                { num: 3, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/4-season/3-episode' },
+                { num: 4, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/4-season/4-episode' },
+                { num: 5, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/4-season/5-episode' },
+                { num: 6, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/4-season/6-episode' },
+                { num: 7, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/4-season/7-episode' },
+                { num: 8, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/4-season/8-episode' }
+            ],
+            5: [
+                { num: 1, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/1-episode' },
+                { num: 2, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/2-episode' },
+                { num: 3, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/3-episode' },
+                { num: 4, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/4-episode' },
+                { num: 5, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/5-episode' },
+                { num: 6, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/6-episode' },
+                { num: 7, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/7-episode' },
+                { num: 8, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/8-episode' },
+                { num: 9, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/5-season/9-episode' }
+            ],
+            6: [
+                { num: 1, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/6-season/1-episode' },
+                { num: 2, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/6-season/2-episode' },
+                { num: 3, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/6-season/3-episode' },
+                { num: 4, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/6-season/4-episode' },
+                { num: 5, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/6-season/5-episode' },
+                { num: 6, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/6-season/6-episode' },
+                { num: 7, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/6-season/7-episode' }
+            ],
+            7: [
+                { num: 1, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/7-season/1-episode' },
+                { num: 2, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/7-season/2-episode' },
+                { num: 3, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/7-season/3-episode' },
+                { num: 4, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/7-season/4-episode' },
+                { num: 5, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/7-season/5-episode' },
+                { num: 6, status: 'not-watched', link: 'https://brassic-kubik.net/6-kubik-v-kube/7-season/6-episode' }
+            ]
+        };
+
+        // Тексты статусов
+        const statusTexts = {
+            'not-watched': 'Не просмотрено',
+            'watching': 'Смотрю',
+            'watched': 'Просмотрено'
+        };
+
+        const seasonButtons = document.querySelectorAll('.season-btn');
+        const episodesContainer = document.getElementById('episodes');
+        const episodesList = document.getElementById('episodes-list');
+
+        // Показываем первый сезон по умолчанию
+        showSeason(1);
+
+        seasonButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const season = btn.getAttribute('data-season');
+                showSeason(season);
+
+                seasonButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        function showSeason(season) {
+            episodesList.innerHTML = '';
+            const episodes = seasonsData[season] || [];
+
+            if (episodes.length === 0) {
+                episodesList.innerHTML = '<li style="text-align:center; padding:30px; font-size:1.3em;">Серии ещё не добавлены</li>';
+            } else {
+                episodes.forEach(ep => {
+                    const li = document.createElement('li');
+                    li.className = 'episode-item';
+
+                    li.innerHTML = `
+                        <a href="${ep.link}" target="_blank">
+                            <span class="episode-number">Серия ${ep.num}</span>
+                            <span class="episode-status ${ep.status}">
+                                ${statusTexts[ep.status] || 'Не просмотрено'}
+                            </span>
+                        </a>
+                    `;
+
+                    episodesList.appendChild(li);
+                });
+            }
+
+            episodesContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
